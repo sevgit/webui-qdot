@@ -82,7 +82,8 @@ const styles = {
         fontWeight: 'bold' as 'bold',
       },
       email: {
-
+        fontSize: '12px',
+        color: 'var(--blue)'
       }
     },
     body: {
