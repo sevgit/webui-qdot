@@ -2,7 +2,7 @@ import * as React from 'react';
 import  { SFC } from 'react';
 import { Link } from 'react-router-dom';
 
-import stringShortener from '../../utils/stringShortener';
+import { stringShortener} from '../../utils/stringUtilities';
 
 interface ISingleCommentProps  {
   postId?: number,

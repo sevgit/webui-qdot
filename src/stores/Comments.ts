@@ -1,5 +1,6 @@
 import { action, observable } from 'mobx';
 
+import { toTitleCase } from '../utils/stringUtilities';
 
 interface InterfaceComment {
   postId: number,
@@ -19,11 +20,17 @@ class CommentStore {
     try {
       const response = await fetch('http://jsonplaceholder.typicode.com/posts/1/comments');
       this.list = await response.json();
+
+      this.list.map((value) => {
+        value.name = toTitleCase(value.name)
+        value.email = value.email.toLowerCase()
+      })
       this.state = 'done';
     } catch (error) {
       this.state = 'error';
     }
   }
+
 }
 
 const Comments = new CommentStore;
