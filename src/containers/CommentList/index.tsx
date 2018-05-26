@@ -15,7 +15,7 @@ class CommentList extends React.Component<any, any> {
 
       case 'done':
         return(
-          this.props.comments.comments.map((value:any, index:number) => {
+          this.props.comments.list.map((value:any, index:number) => {
             return(
               <SingleComment
               postId={value.postId} 

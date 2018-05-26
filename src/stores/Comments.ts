@@ -17,7 +17,7 @@ class CommentStore {
   @action public async fetchComments() {
     this.state = 'loading';
     try {
-      const response = await fetch('https://httpstat.us/403');
+      const response = await fetch('http://jsonplaceholder.typicode.com/posts/1/comments');
       this.list = await response.json();
       this.state = 'done';
     } catch (error) {
