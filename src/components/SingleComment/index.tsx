@@ -1,7 +1,8 @@
 import * as React from 'react';
 import  { SFC } from 'react';
+import { Link } from 'react-router-dom';
 
-import stringShortener from '../../utils/stringShortener'
+import stringShortener from '../../utils/stringShortener';
 
 interface ISingleCommentProps  {
   postId?: number,
@@ -10,6 +11,7 @@ interface ISingleCommentProps  {
   email: string,
   body: string,
   expanded: boolean,
+  onClick?: any,
   
 }
 
@@ -17,7 +19,7 @@ interface ISingleCommentProps  {
 const SingleComment: SFC<ISingleCommentProps> = (props) => { 
 
 return (
-  <div style={styles.commentBox}>
+  <div style={styles.commentBox} onClick={props.onClick} >
     <div style={styles.commentBox.head}>
       <span style={styles.commentBox.head.photo}>PIC</span>
       <div>
@@ -30,6 +32,12 @@ return (
     <p style={styles.commentBox.body} >
       {props.expanded ? props.body : stringShortener(props.body, 30)}
     </p>
+
+    {props.expanded &&
+      <div className="expandedCommentBox">
+      <Link to={'/'} >Go back</Link>
+      </div>
+    }
     
   </div>
 );
