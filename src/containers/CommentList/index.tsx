@@ -23,7 +23,7 @@ class CommentList extends React.Component<any, any> {
               name={value.name}
               email={value.email}
               body={value.body} 
-              expanded={value.expanded} 
+              expanded={false} 
               key={index} />) 
           })
         );

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import  { SFC } from 'react';
 
+import stringShortener from '../../utils/stringShortener'
 
 interface ISingleCommentProps  {
   postId?: number,
@@ -20,11 +21,15 @@ return (
     <div style={styles.commentBox.head}>
       <span style={styles.commentBox.head.photo}>PIC</span>
       <div>
-      <span style={styles.commentBox.head.name} >{props.name}</span>
+      <span style={styles.commentBox.head.name} >
+        {props.expanded ? props.name : stringShortener(props.name, 20)}
+      </span>
       <span style={styles.commentBox.head.email} >{props.email}</span>
       </div>
     </div>
-    <p style={styles.commentBox.body} >{props.body} </p>
+    <p style={styles.commentBox.body} >
+      {props.expanded ? props.body : stringShortener(props.body, 30)}
+    </p>
     
   </div>
 );
