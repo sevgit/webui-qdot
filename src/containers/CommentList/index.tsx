@@ -1,44 +1,13 @@
 import * as React from 'react';
+import { observer } from 'mobx-react';
 import SingleComment from '../../components/SingleComment';
 
-const dummyData = [{
-  postId: 1,
-  id: 1,
-  name: 'Jane',
-  email: 'jane@doe.com',
-  body: 'Hello',
-  expanded: false,
-},
-{
-  postId: 1,
-  id: 2,
-  name: 'Jane',
-  email: 'jane@doe.com',
-  body: 'Hello',
-  expanded: false,
-},
-{
-  postId: 1,
-  id: 3,
-  name: 'Jane',
-  email: 'jane@doe.com',
-  body: 'Hello',
-  expanded: false,
-},
-{
-  postId: 1,
-  id: 4,
-  name: 'Jane',
-  email: 'jane@doe.com',
-  body: 'Hello',
-  expanded: false,
-}]
-
+@observer(['comments'])
 class CommentList extends React.Component<any, any> {
 
   public render() {
     return(
-      dummyData.map((value, index) => {
+      this.props.comments.comments.map((value:any, index:number) => {
         return(
           <SingleComment
           postId={value.postId} 

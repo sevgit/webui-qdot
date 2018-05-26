@@ -65,7 +65,7 @@ const styles = {
       }
     },
     body: {
-      margin: '15px 8px 35px 85px',
+      margin: '25px 8px 25px 85px',
     }
   },
 
