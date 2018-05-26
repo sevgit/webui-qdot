@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 
+import CommentList from './containers/CommentList';
 
 @observer(['comments'])
 class App extends React.Component<any, any> {
@@ -16,9 +17,15 @@ class App extends React.Component<any, any> {
 
   public render() {
     return (
-      <div className="App">
-        
-      </div>
+      <React.Fragment>
+        <header>
+          <h1>CommentBox 9001</h1>
+        </header>
+
+        <div className='App'>
+          <CommentList />
+        </div>
+      </React.Fragment>
     );
   }
 }
