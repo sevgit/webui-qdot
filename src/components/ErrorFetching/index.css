@@ -1,0 +1,19 @@
+.error {
+  font-weight: bold;
+  padding: var(--padding);
+  text-align:center;
+  
+}
+
+.error span {
+  display: block;
+  margin: 8px auto;
+  padding: var(--padding);
+  border-radius: 4px;
+  background-color: var(--blue);
+  color: white;
+  font-weight: normal;
+  cursor: pointer;
+  text-align: center;
+  width: 80px;
+}

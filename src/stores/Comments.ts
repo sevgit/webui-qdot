@@ -10,15 +10,15 @@ interface InterfaceComment {
 }
 
 class CommentStore {
-  @observable public comments: InterfaceComment[] = [];
+  @observable public list: InterfaceComment[] = [];
   @observable public state = 'initial';
  
 
   @action public async fetchComments() {
     this.state = 'loading';
     try {
-      const response = await fetch('http://jsonplaceholder.typicode.com/posts/1/comments');
-      this.comments = await response.json();
+      const response = await fetch('https://httpstat.us/403');
+      this.list = await response.json();
       this.state = 'done';
     } catch (error) {
       this.state = 'error';
