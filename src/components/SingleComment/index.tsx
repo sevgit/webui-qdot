@@ -16,17 +16,60 @@ interface ISingleCommentProps  {
 const SingleComment: SFC<ISingleCommentProps> = (props) => { 
 
 return (
-  <div>
-    <p>{props.postId} </p>
-    <p>{props.id}</p>
-    <p>{props.name}</p>
-    <p>{props.email}</p>
-    <p>{props.body}</p>
+  <div style={styles.commentBox}>
+    <div style={styles.commentBox.head}>
+      <span style={styles.commentBox.head.photo}>PIC</span>
+      <div>
+      <span style={styles.commentBox.head.name} >{props.name}</span>
+      <span style={styles.commentBox.head.email} >{props.email}</span>
+      </div>
+    </div>
+    <p style={styles.commentBox.body} >{props.body} </p>
     
   </div>
 );
  }
 
+const styles = {
+  commentBox: {
+    display: 'flex',
+    flexDirection: 'column' as 'column',
+    width: '100%',
+    border: '2px solid var(--light)',
+    marginBottom: '7px', 
+    head: {
+      display: 'grid',
+      alignItems: 'center',
+      gridGap: '15px',
+      gridTemplateColumns: '60px 1fr',
+      gridTemplateAreas: '"photo details"',
+      backgroundColor: 'var(--light)',
+      padding: '5px 8px',
+      photo: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: 'center',
+        gridArea: 'photo',
+        width: '60px',
+        height: '60px',
+        backgroundColor: 'var(--blue)',
+        borderRadius: '50%',
+      },
+      name: {
+        display: 'block',
+        fontWeight: 'bold' as 'bold',
+      },
+      email: {
+
+      }
+    },
+    body: {
+      margin: '15px 8px 35px 85px',
+    }
+  },
+
+}
 
 
 
