@@ -34,8 +34,16 @@ return (
     </p>
 
     {props.expanded &&
-      <div className="expandedCommentBox">
-      <Link to={'/'} >Go back</Link>
+      <div style={styles.commentBox.expandedCommentBox} >
+      <span style={styles.commentBox.expandedCommentBox.span} >
+      postId: {props.postId}
+      </span>
+      <span style={styles.commentBox.expandedCommentBox.span}>
+      id: {props.id}
+      </span>
+      <Link to={'/'} style={styles.commentBox.expandedCommentBox.link} >Go back</Link>
+
+
       </div>
     }
     
@@ -78,8 +86,28 @@ const styles = {
       }
     },
     body: {
-      margin: '25px 8px 25px 85px',
-    }
+      margin: '25px auto',
+      maxWidth: '80%',
+    },
+    expandedCommentBox: {
+      display: 'grid',
+      gridGap: '20px',
+      gridTemplateColumns: '1fr 1fr 1fr',
+      alignItems: 'center',
+      maxWidth: '80%',
+      margin: '5px auto',
+      span: {
+        fontSize: '12px',
+        color: 'var(--purple)',
+      },
+      link: {
+        textDecoration: 'none',
+        color: 'white',
+        backgroundColor: 'var(--blue)',
+        padding: 'var(--padding)',
+        borderRadius: '4px',
+      }
+    },
   },
 
 }
