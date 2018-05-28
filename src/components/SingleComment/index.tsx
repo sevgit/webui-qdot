@@ -15,7 +15,6 @@ interface ISingleCommentProps  {
   
 }
 
-
 const SingleComment: SFC<ISingleCommentProps> = (props) => { 
 
 return (

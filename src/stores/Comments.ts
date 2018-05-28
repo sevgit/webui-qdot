@@ -26,6 +26,7 @@ class CommentStore {
         value.email = value.email.toLowerCase()
       })
       this.state = 'done';
+
     } catch (error) {
       this.state = 'error';
     }

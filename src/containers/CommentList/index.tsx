@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import SingleComment from '../../components/SingleComment';
 import Spinner from '../../components/Spinner';
 import ErrorFetching from '../../components/ErrorFetching';
 
-@observer(['comments'])
+@inject('comments') @observer
 class CommentList extends React.Component<any, any> {
 
   constructor(props: any) {
@@ -21,7 +21,7 @@ class CommentList extends React.Component<any, any> {
   public render() {
 
     switch (this.props.comments.state) {
-      case 'loading':
+      case 'loading': case 'initial':
         return <Spinner />;
 
       case 'done':
@@ -41,7 +41,7 @@ class CommentList extends React.Component<any, any> {
         );
 
       case 'error':
-        return <ErrorFetching retry={() => this.props.comments.fetchComments()} />
+        return <ErrorFetching buttonText={'Try again?'} buttonFunction={() => this.props.comments.fetchComments()} />
 
       default:
         return null;
