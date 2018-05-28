@@ -10,25 +10,37 @@ interface InterfaceComment {
   body: string,
 }
 
+
 class CommentStore {
   @observable public list: InterfaceComment[] = [];
   @observable public state = 'initial';
- 
 
-  @action public async fetchComments() {
-    this.state = 'loading';
-    try {
-      const response = await fetch('http://jsonplaceholder.typicode.com/posts/1/comments');
-      this.list = await response.json();
 
+  @action public async addComments(status: string, data?: InterfaceComment[]) {
+    if (data && status === 'done') {
+      this.state = 'done';
+      this.list = data;
       this.list.map((value) => {
         value.name = toTitleCase(value.name)
         value.email = value.email.toLowerCase()
       })
-      this.state = 'done';
+    } else {
+      this.state = 'error';
+    }
+
+
+  }
+  @action public async fetchComments(url: string) {
+    this.state = 'loading';
+    try {
+      const response = await fetch(url);
+      this.addComments('done', await response.json())
+
+
+
 
     } catch (error) {
-      this.state = 'error';
+      this.addComments('error')
     }
   }
 
