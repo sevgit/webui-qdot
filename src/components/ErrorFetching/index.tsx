@@ -1,13 +1,16 @@
 import * as React from 'react';
 import './index.css';
 
-
-const ErrorFetching = (props:any) => {
+interface IErrorFetching {
+  buttonText: string,
+  buttonFunction: any,
+}
+const ErrorFetching = (props:IErrorFetching) => {
 
     return (
       <div className='error' >
         Oops! It looks like something went wrong.
-        <span onClick={props.retry} >Try again?</span>
+        <span onClick={props.buttonFunction} >{props.buttonText}</span>
       </div>
 
     );
