@@ -13,7 +13,7 @@ class App extends React.Component<any, any> {
 
   public componentDidMount() {
 
-     this.props.comments.fetchComments()
+     this.props.comments.fetchComments('http://jsonplaceholder.typicode.com/posts/1/comments')
 
     
   }

@@ -41,7 +41,7 @@ class CommentList extends React.Component<any, any> {
         );
 
       case 'error':
-        return <ErrorFetching buttonText={'Try again?'} buttonFunction={() => this.props.comments.fetchComments()} />
+        return <ErrorFetching buttonText={'Try again?'} buttonFunction={() => this.props.comments.fetchComments('http://jsonplaceholder.typicode.com/posts/1/comments')} />
 
       default:
         return null;
